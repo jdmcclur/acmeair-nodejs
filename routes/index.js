@@ -288,6 +288,13 @@ module.exports = function (dbtype, authService, customerService, flightbookingSe
 	module.putCustomerById = function(req, res) {
 		logger.debug('putting customer by user ' + req.params.user);
 		
+		// Hack to get node.js code working with java code
+		req.body['className']='com.acmeair.morphia.entities.CustomerImpl';
+		req.body['status']='GOLD';
+		req.body['total_miles']=1000000;
+		req.body['miles_ytd']=1000;
+		req.body.address['className']='com.acmeair.morphia.entities.CustomerAddressImpl';		
+		
 		if(customerService) {
 			customerService.updateCustomer(req.params.user, req.body, function(err, customer) {
 			if (err) {

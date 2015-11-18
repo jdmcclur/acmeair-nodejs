@@ -34,11 +34,13 @@ module.exports = function (loadUtil,settings) {
 
 	var customerTemplate = {
 	    _id : undefined,
+	    className : "com.acmeair.morphia.entities.CustomerImpl",
 	    password : "password",
 	    status : "GOLD",
 	    total_miles : 1000000,
 	    miles_ytd : 1000,
 	    address : {
+	    	className : "com.acmeair.morphia.entities.CustomerAddressImpl",
 	        streetAddress1 : "123 Main St.",
 	        city : "Anytown",
 	        stateProvince : "NC",
@@ -51,11 +53,13 @@ module.exports = function (loadUtil,settings) {
 	
 	var airportCodeMappingTemplate = {
 		_id : undefined,
+		className : "com.acmeair.morphia.entities.AirportCodeMappingImpl",
 		airportName : undefined
 	};
 	
 	var flightSegmentTemplate = {
 	    _id : undefined,
+	    className : "com.acmeair.morphia.entities.FlightSegmentImpl",
 	    originPort : undefined,
 	    destPort : undefined,
 	    miles : undefined
@@ -63,6 +67,7 @@ module.exports = function (loadUtil,settings) {
 	
 	var flightTemplate = {
 	    _id : undefined,
+	    className : "com.acmeair.morphia.entities.FlightImpl",
 	    flightSegmentId : undefined,
 	    scheduledDepartureTime : undefined,
 	    scheduledArrivalTime : undefined,
